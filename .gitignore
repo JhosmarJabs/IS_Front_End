@@ -12,8 +12,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # Librerías externas (se pueden descargar)
-lib/
-!lib/d3.v7.min.js
+# lib/
+# !lib/d3.v7.min.js
 
 # Archivos temporales y de configuración local
 temp.js
