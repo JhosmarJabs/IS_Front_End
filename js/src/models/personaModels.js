@@ -3,7 +3,4 @@ var models;
     class Persona {
     }
     models.Persona = Persona;
-    class variables {
-    }
-    models.variables = variables;
 })(models || (models = {}));

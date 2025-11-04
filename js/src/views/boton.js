@@ -19,7 +19,7 @@ var view;
             btn.onmouseleave = () => btn.style.opacity = "0.6";
             btn.onclick = () => {
                 // Aquí llamas el método de imprimir en consola
-                // this.registro.getPersona();
+                this.registro.getPersona();
             };
             document.body.appendChild(btn);
         }

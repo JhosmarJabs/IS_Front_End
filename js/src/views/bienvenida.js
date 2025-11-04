@@ -1,14 +1,15 @@
 var view;
 (function (view) {
     class bienvenida {
-        constructor() {
+        constructor(wrapper) {
+            this.contenedor = wrapper.contenedor;
             this.render();
         }
         render() {
-            this.contenedor = d3.select(".fondo-principal-d3");
+            // Limpia contenedor
             this.contenedor.html("");
-            this.contenedor
-                .style("position", "relative")
+            // Aplica estilos para fondo animado
+            this.contenedor.style("position", "relative")
                 .style("height", "100vh")
                 .style("background", "linear-gradient(135deg, #0f2027, #203a43, #2c5364)")
                 .style("font-family", "'Orbitron', sans-serif")
@@ -17,7 +18,7 @@ var view;
                 .style("justify-content", "center")
                 .style("align-items", "center")
                 .style("overflow", "hidden");
-            // Animación de fondo
+            // Fondo puntos animados - un div extra
             const bgDots = this.contenedor.append("div")
                 .style("position", "absolute")
                 .style("top", "0")
@@ -28,7 +29,7 @@ var view;
                 .style("background-image", "radial-gradient(#00ffe6 2px, transparent 2px)")
                 .style("background-size", "50px 50px")
                 .style("animation", "dotsMove 10s linear infinite");
-            // Keyframes animados
+            // Estilos keyframes necesitan inyectarse en head al menos una vez:
             const style = document.createElement("style");
             style.textContent = `
         @keyframes dotsMove {
@@ -37,7 +38,7 @@ var view;
         }
       `;
             document.head.appendChild(style);
-            // Contenedor de bienvenida
+            // Container principal para contenido
             const box = this.contenedor.append("div")
                 .style("position", "relative")
                 .style("z-index", "1")
@@ -47,7 +48,7 @@ var view;
                 .style("padding", "40px 60px")
                 .style("box-shadow", "0 0 15px #00ffe6, inset 0 0 10px #00ffe6")
                 .style("animation", "pulseGlow 3s ease-in-out infinite");
-            // Keyframes pulso
+            // Inyectar keyframes animacion pulso si no existe
             const pulseStyles = document.createElement("style");
             pulseStyles.textContent = `
         @keyframes pulseGlow {
@@ -67,7 +68,7 @@ var view;
                 .style("text-transform", "uppercase")
                 .style("letter-spacing", "3px");
             box.append("p")
-                .text("Gracias por confiar en nuestra plataforma " + appMain.gUser.correoGlobal)
+                .text("Gracias por confiar en nuestra plataforma futurista")
                 .style("font-size", "1.2rem")
                 .style("opacity", "0.7")
                 .style("margin-bottom", "40px")
@@ -100,7 +101,7 @@ var view;
                     .style("box-shadow", "0 0 10px #00ffe6");
             })
                 .on("click", () => {
-                alert("¡Comienza tu experiencia!");
+                alert("¡Comienza tu experiencia futurista!");
             });
         }
     }
